@@ -39,5 +39,5 @@ if st.button("Generate"):
     st.write(generated_text)
 
 if __name__ == '__main__':
-    public_url = ngrok.connect(port='5000')
+    public_url = ngrok.connect(port='8501')
     print('Public URL:', public_url)
