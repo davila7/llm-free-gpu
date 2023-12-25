@@ -1,6 +1,15 @@
 from pyngrok import ngrok
 
 import torch
+torch.backends.cuda.matmul.allow_tf32 = True
+torch.backends.cudnn.benchmark = True
+torch.backends.cudnn.deterministic = False
+torch.cuda.empty_cache()
+torch.cuda.set_per_process_memory_fraction(0.5, device=None)
+torch.cuda.set_per_process_memory_growth(True, device=None)
+torch.cuda.set_max_workspace_size(1024 * 1024 * 1024, device=None)
+torch.backends.cuda.reserved_memory.max_split_size_mb = 1024
+
 from diffusers import StableDiffusionPipeline
 from transformers import AutoModelForCausalLM, AutoTokenizer
 
