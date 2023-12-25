@@ -5,7 +5,6 @@ torch.backends.cuda.matmul.allow_tf32 = True
 torch.backends.cudnn.benchmark = True
 torch.backends.cudnn.deterministic = False
 torch.cuda.empty_cache()
-torch.cuda.set_per_process_memory_fraction(0.5, device=None)
 
 from diffusers import StableDiffusionPipeline
 from transformers import AutoModelForCausalLM, AutoTokenizer
