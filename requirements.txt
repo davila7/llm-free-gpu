@@ -8,5 +8,4 @@ scipy
 ftfy
 accelerate
 pyngrok==4.1.1
-einops
-streamlit
+flask_ngrok
