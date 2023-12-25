@@ -41,8 +41,4 @@ def main():
 if __name__ == '__main__':
     public_url = ngrok.connect(port='8501')
     print('Public URL:', public_url)
-    st._is_running_with_streamlit = True
-    st._is_running_with_streamlit_report_thread = True
-    st._is_running_with_streamlit_server = True
-    st._is_running_with_streamlit_on_databricks = False
-    st.run(main)
+    main()
