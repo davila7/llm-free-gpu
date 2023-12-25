@@ -45,4 +45,4 @@ if __name__ == '__main__':
     st._is_running_with_streamlit_report_thread = True
     st._is_running_with_streamlit_server = True
     st._is_running_with_streamlit_on_databricks = False
-    st._main_run_method(main)
+    st.run(main)
