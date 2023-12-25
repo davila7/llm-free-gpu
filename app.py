@@ -42,5 +42,3 @@ if __name__ == '__main__':
     public_url = ngrok.connect(port='8501')
     print('Public URL:', public_url)
     main()
-
-!streamlit run app.py &>/dev/null&
