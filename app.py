@@ -1,10 +1,6 @@
 from pyngrok import ngrok
 
 import torch
-torch.backends.cuda.matmul.allow_tf32 = True
-torch.backends.cudnn.benchmark = True
-torch.backends.cudnn.deterministic = False
-torch.cuda.empty_cache()
 
 from diffusers import StableDiffusionPipeline
 from transformers import AutoModelForCausalLM, AutoTokenizer
