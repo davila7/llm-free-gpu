@@ -20,23 +20,23 @@ tokenizer = AutoTokenizer.from_pretrained(text_model_id, trust_remote_code=True)
 # pipe = pipe.to("cuda")
 
 import streamlit as st
+def main():
+  st.title("LLM phi-2 with Streamlit")
 
-st.title("LLM phi-2 with Streamlit")
+  prompt = st.text_input("Enter a prompt", "")
 
-prompt = st.text_input("Enter a prompt", "")
+  if st.button("Generate"):
+      # # generate image
+      # image = pipe(prompt).images[0]
+      # st.image(image, caption="Generated Image")
 
-if st.button("Generate"):
-    # # generate image
-    # image = pipe(prompt).images[0]
-    # st.image(image, caption="Generated Image")
+      # generate text
+      input_ids = tokenizer(prompt, return_tensors="pt").input_ids.to("cuda")
+      generated_output = model.generate(input_ids, do_sample=True, temperature=1.0, max_length=2500, num_return_sequences=1)
+      generated_text = tokenizer.decode(generated_output[0], skip_special_tokens=True)
 
-    # generate text
-    input_ids = tokenizer(prompt, return_tensors="pt").input_ids.to("cuda")
-    generated_output = model.generate(input_ids, do_sample=True, temperature=1.0, max_length=2500, num_return_sequences=1)
-    generated_text = tokenizer.decode(generated_output[0], skip_special_tokens=True)
-
-    st.write("Generated Text:")
-    st.write(generated_text)
+      st.write("Generated Text:")
+      st.write(generated_text)
 
 if __name__ == '__main__':
     public_url = ngrok.connect(port='8501')
@@ -45,4 +45,4 @@ if __name__ == '__main__':
     st._is_running_with_streamlit_report_thread = True
     st._is_running_with_streamlit_server = True
     st._is_running_with_streamlit_on_databricks = False
-    st._main_run_method(is_debug_mode=False)
+    st._main_run_method(main)
