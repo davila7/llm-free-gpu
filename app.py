@@ -6,7 +6,6 @@ torch.backends.cudnn.benchmark = True
 torch.backends.cudnn.deterministic = False
 torch.cuda.empty_cache()
 torch.cuda.set_per_process_memory_fraction(0.5, device=None)
-torch.backends.cuda.reserved_memory.max_split_size_mb = 1024
 
 from diffusers import StableDiffusionPipeline
 from transformers import AutoModelForCausalLM, AutoTokenizer
